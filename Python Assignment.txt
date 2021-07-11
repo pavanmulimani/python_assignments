@@ -1,0 +1,322 @@
+#Function to find the element closest to its mean
+a=[1,2,3,4,5,6]
+k=0
+for i in range(0,len(a)):
+    k=k+a[i]
+k=k/(len(a))
+b=[]
+for i in range(0,len(a)):
+    if(a[i]>k):
+        b[i]=a[i]-k
+    else:
+        b[i]=k-a[i]
+print(min(b))
+
+
+--------------------------------------------------
+
+
+
+#Function to find the number near to its mean
+mylist = [12,45,3,4,67,3,24]
+sum = 0
+for i in range(len(mylist)):
+    sum = sum + mylist[i]
+
+m = sum/len(mylist)
+
+mylist.sort()
+temp = m - mylist[0]
+
+a = []
+for i in range(len(mylist)):
+    a.append(m - mylist[i])
+
+temp = a[0]
+for i in range(len(a)) :
+    a[i] = abs(a[i])
+
+for i in range(len(a)-1) :
+    if temp < a[i+1] :
+        pass
+    else :
+        temp = a[i+1]
+
+temp1 = a.index(temp)
+print("number near to mean in list is ", mylist[temp1])
+
+
+-----------------------------------------------------------
+
+
+#function to find the average speed of vehicle
+dis = [0, 0.1, 0.25, 0.65, 1.25, 2.75, 5]
+sum=0
+for i in dis:
+    sum=sum+i
+a_s=sum/7
+print(a_s)
+
+
+-------------------------------------------------------
+
+#function to find the no of people in bus
+n = int(input("Enter the number of stations :"))
+a = []
+
+for i in range(n):
+    print("Please enter data for station ",i)
+    a.append(int(input("Eneter the no. of people onboarding ")))
+    a.append(int(input("Eneter the no. of people leaving ")))
+
+sum = 0
+for i in range(len(a)):
+    if i%2 == 0:
+        sum = sum + a[i]
+    else :
+        sum = sum - a[i]
+
+print(sum)
+
+---------------------------------------------------------------
+
+#function to find misssing number from lists
+l1 = [1,2,3,4,5,6,7,8,9]
+l2 = [1,2,3,4,6,7,8,9]
+l1.sort()
+l2.sort()
+l1.append(0)
+
+for i in range(len(l1)) :
+    if l1[i] == l2[i] :
+        pass
+    else :
+        print(l1[i])
+        break
+
+------------------------------------------------------
+
+#Function to find the difference between min values in two lists
+l1 = [1,2,3,4,5,6,7,8,]
+l2 = [99,88,77,67]
+
+temp = min(l1)
+temp1 = min(l2)
+
+print(abs(temp-temp1))
+
+---------------------------------------------------------------------
+
+# Function to count no of elements smaller than mean
+l = [11,22,33,44,55,4,5,3,78]
+
+l.sort()
+sum = 0
+for i in range(len(l)) :
+    sum = sum + l[i]
+
+mean = sum/len(l)
+
+count = 0
+for i in range(len(l)) :
+    if l[i] < mean :
+        count = count + 1
+print(count)
+
+--------------------------------------------------------
+
+# Function to correct the malformed time string
+time = ["5:70:65"]
+
+for i in time:
+    h, m, s = i.split(':')
+
+h = int(h)
+m = int(m)
+s = int(s)
+
+print(h,m,s)
+secq = s / 60
+sec = s % 60
+
+min = secq + m
+minq = min / 60
+min = min % 60
+
+hr = int(minq) + h
+
+#print(sec , int(min), hr)
+print(hr,":",int(min),":",sec)
+
+-----------------------------------------------------------
+
+# Function to correct the malformed date string
+date = ["45/8/2018"]
+
+for i in date:
+    d, m, y = i.split('/')
+
+d = int(d)
+m = int(m)
+y = int(y)
+
+date = d % 31
+da = d // 31
+
+yr = 0
+month = m + da
+if month > 12 :
+    month = month % 12
+    yr = 1
+
+print(date,end="/")
+print(month,end="/")
+print(y+yr)
+
+------------------------------------------------------------
+
+# Function to convert ip address format into int and vice versa
+ip_add = ["254.255.245.235"]
+print(type(ip_add[0]), ip_add)
+for i in ip_add:
+    a, b, c, d = i.split('.')
+
+ip_add = []
+ip_add.append(int(a))
+ip_add.append(int(b))
+ip_add.append(int(c))
+ip_add.append(int(d))
+
+#print(ip_add)
+
+print(type(ip_add[0]),ip_add)
+
+ip_addr = []
+
+ip_addr.append(str(ip_add[0]))
+ip_addr.append(str(ip_add[1]))
+ip_addr.append(str(ip_add[2]))
+ip_addr.append(str(ip_add[3]))
+
+ip = ip_addr[0] +"."+ ip_addr[1] +"."+ip_addr[0] +"."+ ip_addr[1]
+print(type(ip),ip)
+
+
+
+------------------------------------------------------------
+
+#Function to check if string is isogram
+str = "abcdea"
+
+for i in str:
+    if str.count(i) > 1 :
+        print("String is not a isogram")
+        exit(0)
+print("String is a isogram")
+
+
+---------------------------------------------------------------
+
+#Function to find mexican wave
+str = "abcdea"
+
+arr = []
+
+for i in range(len(str)):
+    str=str.lower()
+    temp_list=list(str)
+    if temp_list[i].isalpha():
+        temp_list[i] = str[i].upper()
+        str = ''.join(temp_list)
+        arr.append(str)
+print(arr)
+
+----------------------------------------------------------------
+
+# Function to find largest number by deleting single digit(No order change)
+number = 958140
+
+number = str(number)
+minimum_num = number[0]
+position_num = 0
+largest_num = ""
+for i in range(len(number)-1):
+    if number[i+1] < minimum_num:
+        minimum_num = number[i+1]
+        position_num = i+1
+for i in range(len(number)):
+    if position_num == i:
+        continue
+    largest_num += number[i]
+
+print("The largest number possible after deleting a single digit :", largest_num)
+
+-----------------------------------------------------------------------------------
+
+# Functio to find the largest number by shuffling the digits
+
+number = 95814050
+
+number1 = str(number)
+number2 = list(number1)
+largest = ""
+for i in range(len(number2) - 1):
+    for j in range(len(number2) - 1):
+        if number2[j] < number2[j + 1]:
+            temp = number2[j]
+            number2[j] = number2[j + 1]
+            number2[j + 1] = temp
+
+for i in range(len(number2)):
+    largest += number2[i]
+print("The largest number after shuffling the digits :", largest)
+
+------------------------------------------------------------------------------------
+
+#Function to compute the word frequency in a given message
+
+String1 = "The day you love yourself is the day you live your life"
+
+word_list = String1.split(" ")
+frequency_list = []
+i = 0
+for word in word_list:
+    word = word.lower()
+    count = 0
+    for word1 in word_list:
+        word1 = word1.lower()
+        if word == word1:
+            count += 1
+    frequency_list.append(count)
+    i += 1
+
+print("the word list and the associated frequency of the word")
+print(word_list)
+print(frequency_list)
+
+-----------------------------------------------------------------------------------
+
+# Function to convert RGB to hex conversion and vice versa
+rgb = (255, 0, 255)
+rgb_hex = '%02x%02x%02x' % rgb
+print("Hex value of the given RGB pair :", rgb_hex)
+
+----------------------------------------------------------------------------------
+
+#Function to generate accumulated string
+String1 = "abcd"
+String2 = ""
+temp_string = ""
+for i in range(len(String1)):
+    c = String1[i].upper()
+    temp_string = c + String1[i] * i
+    String2 += (temp_string)
+    if i < len(String1) - 1 :
+        String2 += "-"
+print("Accumulated String :", String2)
+----------------------------------------------------------------------------------
+
+
+
+
+
